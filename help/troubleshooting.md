@@ -12,9 +12,9 @@ Sometimes you may find yourself facing a problem that doesn't have a clear solut
 
 ### **INSUFFICIENT\_OUTPUT\_AMOUNT**
 
-> The transaction cannot succeed due to error: PancakeRouter: INSUFFICIENT\_OUTPUT\_AMOUNT. This is probably an issue with one of the tokens you are swapping.
+> The transaction cannot succeed due to error: MoonwalkerRouter: INSUFFICIENT\_OUTPUT\_AMOUNT. This is probably an issue with one of the tokens you are swapping.
 >
-> the transaction cannot succeed due to error: execution reverted: pancakerouter: insufficient\_output\_amount.
+> the transaction cannot succeed due to error: execution reverted: moonwalkerrouter: insufficient\_output\_amount.
 
 You're trying to swap tokens, but your slippage tolerance is too low or liquidity is too low.
 
@@ -33,39 +33,29 @@ You're trying to swap tokens, but your slippage tolerance is too low or liquidit
 
 That means there isn't enough of one of the tokens you're trying to swap in the Liquidity Pool: it's probably a small-cap token that few people are trading.
 
-However, there's also the chance that you're trying to trade a scam token which cannot be sold. In this case, PancakeSwap isn't able to block a token or return funds.
-{% endtab %}
-{% endtabs %}
+However, there's also the chance that you're trying to trade a scam token which cannot be sold. In this case, MoonwalkerSwap isn't able to block a token or return funds.
+
 
 ### **INSUFFICIENT\_A\_AMOUNT or INSUFFICIENT\_B\_AMOUNT**
 
-> Fail with error 'PancakeRouter: INSUFFICIENT\_A\_AMOUNT'  
+> Fail with error 'MoonwalkerRouter: INSUFFICIENT\_A\_AMOUNT'  
 > or  
-> Fail with error 'PancakeRouter: INSUFFICIENT\_B\_AMOUNT'
+> Fail with error 'MoonwalkerRouter: INSUFFICIENT\_B\_AMOUNT'
 
 You're trying to add/remove liquidity from a liquidity pool \(LP\), but there isn't enough of one of the two tokens in the pair.
 
-{% tabs %}
-{% tab title="Solution" %}
+
 **Refresh your page and try again, or try again later.**
 
 Still doesn't work?
 
-1. Tap the settings icon on the liquidity page.
+1. Tap the settings cog icon on the liquidity page.
 2. Increase your slippage tolerance a little and try again.
 
-![](../.gitbook/assets/image%20%289%29%20%284%29%20%282%29%20%282%29.png)
-{% endtab %}
 
-{% tab title="Reason" %}
 The error is caused by trying to add or remove liquidity for a liquidity pool \(LP\) with an insufficient amount of token A or token B \(one of the tokens in the pair\).
 
 It might be the case that prices are updating too fast when and your slippage tolerance is too low.
-
-![](https://lh5.googleusercontent.com/T1KMtz2ILDVHljGw1iLbIv0W1KVl7qXL8zU2nLFHkUvDb5oMw9mpUzzBwWmIBz15XDsxZ5w7wsaqAwCs_pxdobz_kY_7BhcZhYtpqWuQGFs23DZq98-SVInlfsS07WzxFPLIYXHt)
-
-![](https://lh5.googleusercontent.com/7aspaCCvDjzxbJxngqwgeq737LB3OUNcAs592QqlEkyrAOTfKsrt_FAwpEylaIJhff5ZcYlzB_r0v1JZwfj3j8Ah6jlUbRoMrAqVfTb3cwDI7B1i5HJtZSQOsTPrv7l7SaclC3BV)
-{% endtab %}
 
 {% tab title="Solution for nerds" %}
 OK, so you're really determined to fix this. We really don't recommend doing this unless you know what you're doing.
@@ -110,25 +100,25 @@ This can cause very high slippage, and can cause the user to lose some funds if 
 {% endtab %}
 {% endtabs %}
 
-### PancakeRouter: EXPIRED
+### MoonwalkerRouter: EXPIRED
 
-> The transaction cannot succeed due to error: PancakeRouter: EXPIRED. This is probably an issue with one of the tokens you are swapping.
+> The transaction cannot succeed due to error: MoonwalkerRouter: EXPIRED. This is probably an issue with one of the tokens you are swapping.
 
 Try again, but confirm \(sign and broadcast\) the transaction as soon as you generate it.
 
 This happened because you started making a transaction, but you didn't sign and broadcast it until it was past the deadline. That means you didn't hit "Confirm" quickly enough.
 
-### Pancake: K
+### Moonwalker: K
 
-> The transaction cannot succeed due to error: Pancake: K. This is probably an issue with one of the tokens you are swapping.
+> The transaction cannot succeed due to error: Moonwalker: K. This is probably an issue with one of the tokens you are swapping.
 
 Try modifying the amount on “To” field. Therefore putting "\(estimated\)" symbol on “From”. Then initiate the swap immediately.
 
 This usually happen when you are trying to swap a token with its own fee.
 
-### Pancake: TRANSFER\_FAILED
+### Moonwalker: TRANSFER\_FAILED
 
-> The transaction cannot succeed due to error: execution reverted: Pancake: TRANSFER\_FAILED.
+> The transaction cannot succeed due to error: execution reverted: Moonwalker: TRANSFER\_FAILED.
 
 Make sure you have 30% more tokens in your wallet than you intend to trade, or try to trade a lower amount. If you want to sell the maximum possible, try 70% or 69% instead of 100%.  
 Caused by the design of Restorative Rebase tokens like tDoge or tBTC.  
@@ -160,13 +150,13 @@ Please contact the project team of the token you're trying to swap. ****This iss
 {% endtab %}
 
 {% tab title="Reason" %}
-**This issue \(while swapping\) is caused by tokens which have hard-coded the V1 PancakeSwap router into their contract.**
+**This issue \(while swapping\) is caused by tokens which have hard-coded MoonwalkerSwap router into their contract.**
 
 While this practice is ill-advised at best, the reason for these projects having done this appears to be due to their tokenomics, in which each purchase sends a % of the token to LPs.
 
 The projects affected will likely not work with the V2 router: they will most likely need to create new versions of their tokens pointing to our new router address, and migrate any existing token holders to their new token.
 
-We recommend that any projects which created such tokens should also make efforts to prevent their users from adding them to V2 LP.
+We recommend that any projects which created such tokens should also make efforts to prevent their users from adding them to LP.
 
 The up-to-date router address is [https://bscscan.com/address/0x10ED43C718714eb63d5aA57B78B54704E256024E](https://bscscan.com/address/0x10ED43C718714eb63d5aA57B78B54704E256024E)
 {% endtab %}
@@ -209,27 +199,28 @@ If you're trading tokens with Restorative Rebase like tau assets tDoge or tBTC, 
 {% endtab %}
 {% endtabs %}
 
-## **Issues with Syrup Pools**
+## **Issues with Space Pools**
 
 ### BEP20: burn amount exceeds balance
 
 > Fail with error 'BEP20: burn amount exceeds balance'
 
-You don't have enough SYRUP in your wallet to unstake from the CAKE-CAKE pool.
+You don't have enough SpaceBar in your wallet to unstake from the DUST-DUST pool.
 
 {% tabs %}
 {% tab title="Solution 1" %}
-**Get at least as much SYRUP as the amount of CAKE that you’re trying to unstake.**
+**Get at least as much SPACEBAR as the amount of DUST that you’re trying to unstake.**
 
-1. Buy SYRUP on the exchange. If you want to unstake 100 CAKE, you need at least 100 SYRUP.
+1. Buy SPACEBAR on the exchange. If you want to unstake 100 DUST, you need at least 100 SPACEBAR.
 2. Try unstaking again.
 {% endtab %}
 
 {% tab title="Solution 2" %}
 If that still fails, you can perform an “emergencyWithdraw” from the contract directly to unstake your staked tokens.
 
-1. Go to: [https://bscscan.com/address/0x73feaa1eE314F8c655E354234017bE2193C9E24E\#writeContract ](https://bscscan.com/address/0x73feaa1eE314F8c655E354234017bE2193C9E24E#writeContract%20)
-2. Click **“Connect to Web3”** and connect your wallet. ![](https://lh6.googleusercontent.com/-_sNkO1gcOOJXkduDEUzbExKE2mNxBOR0f86Lpp3BBuPbIcmAHsfuvpF-hKqRn4oID5QzdGkk_1dTHkPuCmE50vpNNZxEqoM5nPmE_12k3-8Q8YYoRYqJ_VGjxJ03YPRuVQ1O5ME)
+1. Go to: [https://bscscan.com/address/0x34c3deb04f6f30fdd8f2eaa52d41b08c2dcb9ae1\#writeContract ](https://bscscan.com/address/0x34c3deb04f6f30fdd8f2eaa52d41b08c2dcb9ae1#writeContract%20)
+2. Click **“Connect to Web3”** and connect your wallet. 
+
 3. In section **“4. emergencyWithdraw”**, enter "0" and click “Write”.
 
 This will unstake your staked tokens and lose any uncollected CAKE yield.
@@ -240,15 +231,10 @@ This will unstake your staked tokens and lose any uncollected CAKE yield.
 {% endtab %}
 
 {% tab title="Reason" %}
-To stop this happening again, **don’t sell your SYRUP.** You still need it to unstake from the “Stake CAKE Earn CAKE” pool.
+To stop this happening again, **don’t sell your SYRUP.** You still need it to unstake from the “Stake DUST Earn DUST” pool.
 
-This error has happened because you have sold or transferred SYRUP tokens. SYRUP is minted in a 1:1 ratio to CAKE when you stake in the CAKE-CAKE Syrup Pool. SYRUP must be burned at a 1:1 ratio to CAKE when calling leaveStaking \(unstaking your CAKE from the pool\), so if you don't have enough, you can't unstake from the pool.
+This error has happened because you have sold or transferred SYRUP tokens. SYRUP is minted in a 1:1 ratio to CAKE when you stake in the DUST-DUST Space Pool. SPACEBAR must be burned at a 1:1 ratio to DUST when calling leaveStaking \(unstaking your DUST from the pool\), so if you don't have enough, you can't unstake from the pool.
 
-{% embed url="https://dashboard.tenderly.co/tx/binance/0x754e18ceea82acac256b49c2b7a81260f7f86dd5e56ee2e3cc1b6ac864c29a8e" caption="" %}
-
-![](https://lh4.googleusercontent.com/KchAcnM6cpX2BotEGppAxPAnY4Xbona6yI6ZWg9FlUUBfPi_YO9ulM1s6htXJVXMzEwl0Uxcvdk8o4yhI7ar5g0TRpLVFjkS4YLKL7FS8Z4uFqeC37sw-TIkrPr7BCZQVpuD-5jO)
-{% endtab %}
-{% endtabs %}
 
 ### Out of Gas error
 
