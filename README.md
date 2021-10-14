@@ -2,11 +2,11 @@
 
 ![](.gitbook/assets/masthead-twitter-3-%20%281%29%20%281%29.png)
 
-{% hint style="success" %}
+
 #### MoonwalkerSwap helps you make the most out of your crypto in three ways:
 
 #### Trade, Earn, and Win.
-{% endhint %}
+
 
 ## ↔️ Trade
 
