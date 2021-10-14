@@ -45,7 +45,7 @@ No farm? No problem. Even if your trading pair isn’t supported on the Farms pa
 
 
 
-**Sounds like fun?  
-Then get flipping!** 🐰 🥞  
+**Sounds like fun?  🌙
+Join In
 ****
 
