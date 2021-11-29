@@ -14,7 +14,7 @@
 
 ### The people's choice
 
-MoonwalkerSwap is the leading decentralized exchange on Binance Smart Chain, with the highest trading volumes in the market \(sources: [1](https://www.coingecko.com/en/exchanges/decentralized) [2](https://coinmarketcap.com/rankings/exchanges/dex/)\).
+MoonwalkerSwap is the leading decentralized exchange on Binance Smart Chain (sources: [1](https://www.coingecko.com/en/exchanges/decentralized) [2](https://coinmarketcap.com/rankings/exchanges/dex/)\).
 
 ### Low fees
 
