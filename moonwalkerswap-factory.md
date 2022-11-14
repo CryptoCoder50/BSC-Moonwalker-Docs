@@ -569,7 +569,7 @@ Receive an exact amount of output tokens for as few input tokens as possible.
 ### Interface
 
 ```
-import '@uniswap/v2-core/contracts/interfaces/IPancakeRouter.sol';
+import '@uniswap/v2-core/contracts/interfaces/IMoonwalkerRouter.sol';
 ```
 
 ```
