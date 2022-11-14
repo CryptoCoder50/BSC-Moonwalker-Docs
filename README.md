@@ -1,51 +1,112 @@
-# MoonwalkerSwap Intro
+---
+description: MoonwalkerSwap Codebase
+---
 
-![](.gitbook/assets/masthead-twitter-3-%20%281%29%20%281%29.png)
+# BSC CodeBase
 
+## Codebase Overview
 
-#### MoonwalkerSwap helps you make the most out of your crypto in three ways:
+### Introduction
 
-#### Trade, Earn, and Win.
+All our repositories are stored on [Github](https://github.com/MoonWalkerJim). Most of them are public, and you can freely submit an issue or a pull request. Make sure you read this whole guide, and the guidelines specific to each repository before.
 
+### Github repositories
 
-## ↔️ Trade
+* [uikit](https://github.com/MoonWalkerJim/MoonwalkerSwap-uikit): Contains a set of packages used to build the MoonWalkerSwap ecosystem.
+* [Frontend](https://github.com/MoonWalkerJim/MoonWalkerSwap-FrontEnd-Main): The main frontend. It contains all the features that are not listed below.
+* [Swap-Interface](https://github.com/MoonWalkerJim/int): The trading platform for MoonwalkerSwap.
+* [Info](https://github.com/MoonWalkerJim/moonwalker-info): On chain data for MoonwalkerSwap.
 
-> Instantly swap crypto tokens: no registration or account needed.
+## Contributing
 
-### The people's choice
+MoonWalkerSwap is an open-source project. If you want to contribute to the project, this section is here to guide you through your first steps with the MoonwalkerSwap team 🌙
 
-MoonwalkerSwap is the leading decentralized exchange on Binance Smart Chain (sources: [1](https://www.coingecko.com/en/exchanges/decentralized) [2](https://coinmarketcap.com/rankings/exchanges/dex/)\).
+Before starting any development, we highly encourage you to submit an issue on Github in order to discuss the problem, and the solution with the team. If you want to reach out to the dev team directly, [contact MoonWalkerJim](https://discord.gg/RSRMJsvp) on Discord.
 
-### Low fees
+### Setup your dev environment
 
-Why pay more? MoonwalkerSwap runs on Binance Smart Chain, a blockchain with much lower transaction costs than Ethereum or Bitcoin.   
-Trading fees are lower than other top decentralized exchanges too, so that's a double win for you!
+1.  Fork the repository and an [add upstream remote](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). E.g.
 
-### Decentralized
+    ```bash
+    $ git remote add upstream git@github.com:MoonWalkerJim/MoonWalkerSwap-FrontEnd-Main.git
+    ```
+2.  Make sure you have the latest version of the default branch ( `main` )
 
-Trade directly from your wallet app.   
-Unlike centralized exchanges like Binance or Coinbase, MoonwalkerSwap doesn’t hold your funds when you trade: **you have 100% ownership of your own crypto**. 
+    ```bash
+    $ git checkout main
+    $ git pull upstream main
+    ```
+3.  Create your own branch and install dependencies
 
-## 💸 Earn
+    ```bash
+    $ git checkout -b branch-name
+    $ yarn
+    ```
+4. Happy coding 🎉
 
-> Earn DUST and other tokens for free with super high interest rates.
+### Coding rules
 
-### Earn tokens with Space Pools
+We try to maintain as much consistency as we can between each of our repository. Your pull request has more chances to be accepted if you follow some the following rules, and write high quality code. **Let's get started** 💪
 
-Stake DUST, earn free tokens. It’s really that easy.   
-DUST holders right now are earning tens of millions of USD worth of free tokens each week from major projects. New projects join the party every day, so you can earn more, for even longer.
+#### Use the UIKit
 
-### Earn DUST with Yield Farms
+{% hint style="warning" %}
+Check the [UI Kit](https://github.com/MoonWalkerJim/MoonwalkerSwap-uikit) before you start doing anything. A lot of components are already created, and we don't want that you waste your time reinventing the wheel 😉
+{% endhint %}
 
-Stake LP tokens, earn DUST. You take on a little more exposure to market fluctuations than with the Space Pools, but can earn higher APR to offset the risk.
+If a variant of a component needs to be created, use the corresponding component in the UI Kit as a base. For example:
 
-### Earn Trading Fees
+```javascript
+import styled from 'styled-components'
+import { Button } from 'moonwalkerswap-uikit'
 
-No farm? No problem. Even if your trading pair isn’t supported on the Farms page, you can still earn trading fees when you stake your tokens in Liquidity Pools \(LPs\).
+const NewButtonVariant = styled(Button)`
+  // custom styles here
+`
+```
 
+#### Use the tools!
 
+Most of our repos use [Typescript](https://www.typescriptlang.org/docs), [ESLint](https://eslint.org/docs/user-guide/getting-started), and [Prettier](https://prettier.io/). Make sure you're familiar with Typescript’s best practices, and enable an ESLint and Prettier plugin for your IDE.
 
-**Sounds like fun?  🌙
-Join In
-****
+{% hint style="warning" %}
+Make sure your code is formatted with Prettier, and is free from any ESLint error before you submit a pull request.
+{% endhint %}
 
+#### Some good practices
+
+* Keep components as small and ["dumb"](https://en.wikipedia.org/wiki/Pure\_function) as possible.
+* Use [Composition over Inheritance](https://reactjs.org/docs/composition-vs-inheritance.html).
+* Keep in mind that your code will be read and maintained by several other developers. Make it as clear and easy to update as possible.
+
+### Committing <a href="#committing" id="committing"></a>
+
+Our commit messages follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) using [commitlint](https://commitlint.js.org/#/).‌
+
+| Type         | Description                                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------------------- |
+| **build**    | Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)         |
+| **ci**       | Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) |
+| **docs**     | Documentation only changes                                                                                  |
+| **feat**     | A new feature                                                                                               |
+| **fix**      | A bug fix                                                                                                   |
+| **perf**     | A code change that improves performance                                                                     |
+| **refactor** | A code change that neither fixes a bug nor adds a feature                                                   |
+| **style**    | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)      |
+| **test**     | Adding missing tests or correcting existing tests                                                           |
+
+_More at_ [_Angular's guidelines_](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type)_​_
+
+### Creating your pull request
+
+Your code is ready to be submitted for review, congratulations🥳
+
+* All pull requests **must** have a description of what the PR is trying to accomplish.
+* Keep pull requests **as small as possible**. Larger pull requests should be broken up into smaller chunks with a dedicated base branch. Please tag the PR's that are merging into your base branch with the `epic` tag.
+* If possible self-review your PR and **add comments** where additional clarification is needed.
+
+{% hint style="info" %}
+Create a [draft PR](https://github.blog/2019-02-14-introducing-draft-pull-requests/) as soon as possible so we can view your ongoing progress.
+{% endhint %}
+
+**Thanks for helping us to making MoonWalkerSwap even more awesome** ❤
